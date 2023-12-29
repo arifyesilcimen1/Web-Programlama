@@ -1,0 +1,80 @@
+﻿@model IEnumerable<HastaneTakipSistemi.Models.BarkodOlustur>
+
+@{
+    ViewData["Title"] = "Ekran";
+}
+
+<h1>ACİL TELEVİZYONU</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.HastaAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tcNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngelDurumu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BarkodNumarasi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kod)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+@foreach (var item in Model) {
+            <tr class ="@GetBackgroundColorClass(item.Kod)">
+                
+            <td>
+                @Html.DisplayFor(modelItem => item.HastaAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tcNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngelDurumu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BarkodNumarasi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kod)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+@functions {
+    string GetBackgroundColorClass(string kod)
+    {
+        if (kod == "Yeşil")
+        {
+            return "yesil-bg";
+        }
+        else if (kod == "Kırmızı")
+        {
+            return "kirmizi-bg";
+        }
+        else
+        {
+            return "sari-bg";
+        }
+    }
+}
